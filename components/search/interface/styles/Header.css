@@ -1,0 +1,62 @@
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 30;
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+    position: relative;
+}
+
+.logo-circle {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.logo-line {
+    position: absolute;
+    inset: 3px;
+    transform: rotate(45deg);
+    border-top: 2px solid black;
+}
+
+.app-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: black;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-button {
+    color: #374151;
+}
+
+.avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #14b8a6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}

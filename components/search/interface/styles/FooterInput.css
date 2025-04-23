@@ -1,0 +1,157 @@
+/* Floating Footer */
+.chat-footer.floating {
+    position: sticky;
+    /* position: absolute; */
+    bottom: 1.5rem;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+    border-top: none;
+    box-shadow: none;
+    z-index: 100;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-form {
+    position: relative;
+    width: 100%;
+}
+
+.floating-input-container {
+    position: relative;
+    background-color: white;
+    border-radius: 0.75rem;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
+    padding: 0.75rem 1.1rem;
+    transition: all 0.2s ease;
+    border: 1px solid #d1d5db;
+    background-color: white;
+    color: black;
+}
+
+/* .floating-input-container:hover { */
+/*     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15); */
+/* } */
+
+.floating-input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 1rem;
+    padding: 0.25rem 0;
+    padding-right: 8rem;
+}
+
+.floating-input:focus {
+    outline: none;
+}
+
+.floating-footer-buttons {
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.floating-search-section {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    border-right: 1px solid #e5e7eb;
+    border-left: 1px solid #e5e7eb;
+    padding: 0 0.5rem;
+}
+
+.floating-search-button,
+.floating-think-button {
+    color: #374151;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.floating-input-button {
+    color: #6b7280;
+    transition: color 0.2s ease;
+}
+
+.floating-input-button:hover {
+    color: #111827;
+}
+
+.model-selector {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 800px) {
+    .footer-container {
+        max-width: 100%;
+    }
+
+    .floating-search-button span,
+    .floating-think-button span {
+        display: none;
+    }
+
+    .floating-search-section {
+        padding: 0 0.25rem;
+    }
+
+    .floating-footer-buttons {
+        gap: 0.25rem;
+    }
+
+    .floating-input {
+        padding-right: 6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .floating-search-section {
+        border-left: none;
+        border-right: none;
+    }
+
+    .floating-input {
+        padding-right: 5rem;
+    }
+
+    .footer-container {
+        padding: 0 0.5rem;
+    }
+
+    .floating-input-container {
+        padding: 0.75rem 1rem;
+    }
+
+    .floating-footer-buttons {
+        right: 0.75rem;
+    }
+
+    .model-selector {
+        margin-top: 0.5rem;
+    }
+}

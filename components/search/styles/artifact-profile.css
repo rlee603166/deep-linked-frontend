@@ -1,0 +1,72 @@
+.profile-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.arrow {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 4px;
+    padding-right: 5px;
+    cursor: pointer;
+    z-index: 20;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/**/
+/* .h-48.bg-gradient-to-r { */
+/*     position: relative; */
+/*     z-index: 0; */
+/* } */
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    padding-top: 20px;
+}
+
+.header-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.experience-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.experience-logo {
+    width: 1.25rem;
+    height: auto;
+}
+
+.user-image {
+    width: 3rem;
+    height: 3rem;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.vertical-timeline {
+    padding-left: 32px;
+}
+
+.job-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.company-name {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.dates {
+    font-size: 0.75rem;
+    color: #687684;
+    font-weight: 100;
+}

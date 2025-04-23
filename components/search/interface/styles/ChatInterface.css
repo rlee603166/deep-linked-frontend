@@ -1,0 +1,99 @@
+/* Main Container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+    /* Prevent scrolling at the container level */
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(156, 163, 175, 0.7);
+}
+
+/* Main Content Section - Full width for scrollbar, centered content */
+
+.chat-main {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    padding-bottom: 8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-main.with-query-header {
+
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+}
+
+.messages {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.messages-scrollable {
+    flex: 1;    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-top: 2rem; */
+    padding-bottom: 5rem;
+    max-height: 100%; 
+}
+
+.messages-scrollable.artifact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Common icon styles */
+.icon-small {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.icon-tiny {
+    height: 1rem;
+    width: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+
+    .query-container,
+    .footer-container,
+    .messages-container,
+    .welcome-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .chat-main {
+        padding-bottom: 7rem;
+    }
+}

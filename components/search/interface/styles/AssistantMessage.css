@@ -1,0 +1,26 @@
+.assistant-message-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.assistant-message {
+    color: black;
+    padding: 0.5rem 0;
+}
+
+.message-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    justify-content: flex-end;
+}
+
+.action-button {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

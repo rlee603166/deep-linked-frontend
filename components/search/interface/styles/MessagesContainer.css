@@ -1,0 +1,40 @@
+/* Messages Display */
+.messages-container {
+    width: 100%;
+    margin: 0;
+    margin-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow-y: auto;    
+    overflow-x: hidden;
+    margin-bottom: 2rem;
+}
+
+/* Add a content container inside for the max-width */
+.messages-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.message-wrapper {
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.assistant-message-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.user-message-wrapper.hidden {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .messages-content {
+        max-width: 100%;
+    }
+}
