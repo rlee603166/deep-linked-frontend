@@ -125,10 +125,6 @@ export default function ArtifactProfile({ user, handleBack }) {
                     </div>
                 </div>
             </div>
-            {/*<div className="header">
-                <img src={user.pfp_url} className="user-image" />
-                <div className="header-name">{fullName}</div>
-            </div>*/}
             <div className="vertical-timeline">
                 <div className="experience-header">Experience</div>
                 <Experiences experiences={sortedExperiences} />
