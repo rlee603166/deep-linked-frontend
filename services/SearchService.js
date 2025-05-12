@@ -6,6 +6,7 @@ export const searchService = {
 
         try {
             onStatus?.("Processing query...");
+            console.log(`api endpoint: ${ENDPOINTS.search}`)
             const response = await fetch(ENDPOINTS.search, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
