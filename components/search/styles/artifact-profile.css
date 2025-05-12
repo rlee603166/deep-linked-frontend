@@ -1,7 +1,8 @@
 .profile-container {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    overflow-y: scroll;
-    height: 100%;
+    overflow-y: auto;           /* auto shows scrollbar only when needed */
+    height: calc(100vh - 130px); /* note the space and the “px” */
+    box-sizing: border-box;      /* include padding/border in that height */
 }
 
 .arrow {
