@@ -1,15 +1,33 @@
 import { ENDPOINTS } from "@/api.config.js";
 
 export const searchService = {
-    search: async (query, callbacks) => {
+    createSession: async () => {
+        const user_id = 'dev';
+        try {
+            const response = await fetch(`${ENDPOINTS.search}/sessions`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ user_id }),
+            });
+
+            const data = await response.json();
+
+            console.log(data);
+            return data.session_id;
+        } catch (error) {
+            console.error("Error:", error);
+            onStatus?.("Error: Failed to get response");
+        }   
+    },
+    search: async (session_id, query, callbacks) => {
         const { onThought, onAction, onResponse, onStatus, onUsers, onFoundUsers } = callbacks;
 
         try {
             onStatus?.("Processing query...");
-            const response = await fetch(ENDPOINTS.search, {
+            const response = await fetch(`${ENDPOINTS.search}/query`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ query }),
+                body: JSON.stringify({ query, session_id }),
             });
 
             if (!response.ok) {

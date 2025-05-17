@@ -9,9 +9,13 @@
 }
 
 .logo-container {
+    padding-left: 10px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
+
+
 
 .logo {
     width: 2rem;

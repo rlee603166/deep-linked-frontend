@@ -18,6 +18,7 @@ import ArtifactProfile from "./artifact-profile";
 import SearchService from "@/services/SearchService";
 
 function sortExperiences(experiences) {
+    if (!Array.isArray(experiences)) return [];
     return experiences.slice().sort((a, b) => {
         const parseDate = dateStr => {
             if (!dateStr) return new Date(0);
@@ -41,6 +42,7 @@ function sortExperiences(experiences) {
 }
 
 function sortEducations(educations) {
+    if (!Array.isArray(educations)) return [];
     return educations.slice().sort((a, b) => {
         const parseDate = dateStr => {
             if (!dateStr) return new Date(0);
@@ -106,15 +108,18 @@ export default function Artifact({ usersFound }) {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        if (!Array.isArray(usersFound)) return;
+
         const sortedUsers = usersFound.map(user => ({
             ...user,
             experiences: sortExperiences(user.experiences),
             educations: sortEducations(user.educations),
         }));
 
-        console.log(JSON.stringify(sortedUsers, null, 2));
-
-        setUsers(sortedUsers);
+        const hasChanged = JSON.stringify(users) !== JSON.stringify(sortedUsers);
+        if (hasChanged) {
+            setUsers(sortedUsers);
+        }
     }, [usersFound]);
 
     const fetchUsers = async () => {
