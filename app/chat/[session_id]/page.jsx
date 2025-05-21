@@ -32,11 +32,18 @@ export default function Page() {
                 setCurrentQuery(storedQuery);
                 setMessages([{ role: "user", content: storedQuery }]);
 
+                setUsersFound([]);
+                const collected = [];
+
                 await searchService.search(session_id, storedQuery, {
                     onThought: message => streamThought(message),
                     onResponse: message => streamResponse(message),
                     onUsers: message => setUsers(prev => new Set([...prev, ...message])),
-                    onFoundUsers: message => setUsersFound(message),
+                    onFoundUsers: message => {
+                        collected.push(message);
+                        console.log(message);
+                        setUsersFound([...collected]);
+                    },
                 });
             } else {
                 // const pastMessages = await searchService.loadSession(session_id);
@@ -47,13 +54,6 @@ export default function Page() {
         if (session_id) boot();
     }, [session_id]);
 
-    // const filterUsers = (users) => {
-    //     if usersFound.length === 0 {
-    //         setUsersFound([...users]);
-    //         return
-    //     }
-    //     setUsers([...usersFound.filter(user => user.user_id === users)]);
-    // }
 
     const streamThought = chunk => {
         setMessages(prevMessages => {
@@ -102,6 +102,9 @@ export default function Page() {
         setMessages(newMessages);
         setInputValue("");
 
+        // setUsersFound([]);
+        const collected = [];
+
         try {
             await searchService.search(session_id, inputToUse, {
                 onThought: message => streamThought(message),
@@ -112,7 +115,10 @@ export default function Page() {
                         message.forEach(user => temp.add(user));
                         return temp;
                     }),
-                onFoundUsers: message => setUsersFound(message),
+                onFoundUsers: message => {
+                    collected.push(message);
+                    setUsersFound([...collected]);
+                },
             });
         } catch (e) {
             console.error("Error with streaming", e);

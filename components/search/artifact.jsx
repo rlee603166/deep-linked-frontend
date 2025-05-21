@@ -65,11 +65,11 @@ function sortEducations(educations) {
     });
 }
 
-const UserCard = ({ index, user, isLast }) => {
+const UserCard = ({ user, isLast }) => {
     const fullName = `${user.first_name || ""} ${user.last_name || ""}`.trim();
 
     return (
-        <div key={index} className={`${isLast ? "last-user" : "user-card"}`}>
+        <div className={`${isLast ? "last-user" : "user-card"}`}>
             <img src={user.pfp_url} className="user-image" />
             <div className="user-content">
                 <div className="user-header">
@@ -79,16 +79,18 @@ const UserCard = ({ index, user, isLast }) => {
                             {user.verified && <Check size={16} className="verified-icon" />}
                         </div>
                         <div className="user-title">
-                            {`${user.experiences[0].job_title} @ ${user.experiences[0].company_name}`}
+                            {user.experiences && user.experiences.length > 0 ? 
+                                `${user.experiences[0].job_title} @ ${user.experiences[0].company_name}` : 
+                                "No experience listed"}
                         </div>
                     </div>
                     <button className="connect-button">Connect</button>
                 </div>
                 <div className="user-bio">{user.bio}</div>
                 <div className="mt-3 flex flex-wrap gap-1.5">
-                    {user.skills.map((skill, index) => (
+                    {user.skills && user.skills.map((skill, skillIndex) => (
                         <Badge
-                            key={index}
+                            key={`${user.user_id}-skill-${skillIndex}`}
                             variant="secondary"
                             className="font-normal bg-slate-100 hover:bg-slate-200 text-slate-700 border-0"
                         >
@@ -162,12 +164,11 @@ export default function Artifact({ usersFound }) {
                             {users.length > 0 &&
                                 users.map((user, index) => (
                                     <div
-                                        key={user.user_id}
+                                        key={user.user_id} // Using user_id as a stable key
                                         onClick={() => handleClick(index)}
                                         className="user-container"
                                     >
                                         <UserCard
-                                            key={index}
                                             user={user}
                                             isLast={index === users.length - 1}
                                         />

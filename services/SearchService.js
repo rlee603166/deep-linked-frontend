@@ -74,6 +74,7 @@ export const searchService = {
                                     onUsers?.(data.message);
                                     break;
                                 case "users_found":
+                                    console.log(`users found: ${JSON.stringify(data, null, 2)}`);
                                     onFoundUsers?.(data.message);
                                     break;
                                 case "response":

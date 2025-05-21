@@ -1,36 +1,3 @@
-// export default function UserBadge({ firstName, lastName, profilePicture }) {
-//     const fullName = `${firstName || ""} ${lastName || ""}`.trim();
-//     const getInitials = () => {
-//         if (firstName && lastName) {
-//             return `${firstName.charAt(0)}${lastName.charAt(0)}`;
-//         } else if (firstName) {
-//             return firstName.charAt(0);
-//         } else if (lastName) {
-//             return lastName.charAt(0);
-//         }
-//         return "?";
-//     };
-//
-//     return (
-//         <div className="flex items-center space-x-2 p-2 rounded-md bg-gray-100 max-w-xs">
-//             {profilePicture ? (
-//                 <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
-//                     <img
-//                         src={profilePicture}
-//                         alt={fullName}
-//                         className="w-full h-full object-cover"
-//                     />
-//                 </div>
-//             ) : (
-//                 <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-medium flex-shrink-0">
-//                     {getInitials()}
-//                 </div>
-//             )}
-//             <span className="font-medium text-gray-800 truncate">{fullName}</span>
-//         </div>
-//     );
-// }
-
 // UserBadge.jsx
 import React from "react";
 import { User } from "lucide-react";
